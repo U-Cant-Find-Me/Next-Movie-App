@@ -1,0 +1,21 @@
+.box {
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  background: #2d313a;
+  z-index: 100;
+}
+
+.color{
+    color: #fff;
+}
+
+.color:active{
+  color: red;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

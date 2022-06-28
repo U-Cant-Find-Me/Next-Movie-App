@@ -1,0 +1,27 @@
+.content{
+    padding-top: 10rem;
+}
+
+.pageTitle{
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    padding: 4px;
+    border-radius: 50px;
+    color: #fff;
+}
+
+@media screen and (max-width:1000px) {
+    .pageTitle{
+        font-size: 6.4vw;
+    }
+}
+
+.trendingContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
