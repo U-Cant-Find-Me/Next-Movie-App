@@ -1,21 +1,72 @@
-.box {
-  width: 100vw;
+.content *{
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
   position: fixed;
   bottom: 0px;
-  background: #2d313a;
-  z-index: 100;
+  background-color: rgb(74, 80, 80);
+  z-index: 20;
 }
 
-.color{
-    color: #fff;
-}
-
-.color:active{
-  color: red;
-}
-
-.flex{
+.list{
+  width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.listItems{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .icon{
+    width: 10px;
+    height: 10px;
+    margin-right: 2.5px;
+  }
+}
+
+.text{
+  font-size: 20px;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .text{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .text{
+    font-size: 10px;
+  }
 }

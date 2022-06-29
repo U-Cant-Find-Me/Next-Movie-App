@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Custompagination from '../components/Custompagination';
+import Genres from '../components/Genres';
 import SingleContent from '../components/SingleContent';
 import styles from '../styles/movies.module.css';
 
@@ -9,6 +10,8 @@ const movies = () => {
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState();
+    const [selectedGenres, setSelectedGenres] = useState([]);
+    const [genres, setGenres] = useState([]);
 
     const fetchMovies = async () => {
         const { data } = await axios.get(
@@ -26,6 +29,11 @@ const movies = () => {
     return (
         <div className={styles.content}>
             <span className={styles.pageTitle}>Discover Movies</span>
+
+            <Genres type="movie" selectedGenres={selectedGenres}
+                genres={genres} setGenres={setGenres} setSelectedGenres={setSelectedGenres}
+                setPage={setPage} />
+
             <div className={styles.trendingContainer}>
                 {content && content.map((item, index) =>
                     <SingleContent key={index} id={item.id}
