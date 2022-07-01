@@ -31,6 +31,15 @@
   padding-bottom: 5px;
 }
 
+.tab{
+  padding: 15px;
+  margin: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-size:large;
+  font-weight:bold;
+}
+
 .trendingContainer {
   display: flex;
   flex-wrap: wrap;
