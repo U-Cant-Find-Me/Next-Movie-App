@@ -1,7 +1,6 @@
 import { Badge } from '@mui/material';
 import React from 'react';
 import styles from '../styles/singleContent.module.css'
-import StarIcon from '@mui/icons-material/Star';
 import { img_300, unavailable } from './Config';
 import Link from 'next/link';
 
@@ -22,7 +21,6 @@ const SingleContent = ({ id, poster, title, date, media_type, vote_average, setS
             setSelectedMovie(id)
         }}>
             <div className={styles.mui}>
-                <StarIcon className={styles.starIcon} />
                 <Badge className={styles.badge} badgeContent={vote_average ? vote_average : "NA"} color={vote_average > 7 ? "primary" : "secondary"} />
             </div>
             <img className={styles.poster}

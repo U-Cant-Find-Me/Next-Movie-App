@@ -46,7 +46,7 @@ const Search = () => {
               onChange={(e) => setSearchText(e.target.value)} />
           </div>
 
-          <Tabs className={styles.tabs} value={type} indicatorColor="primary" textColor="primary"
+          <Tabs className={styles.tabs} value={type} indicatorColor="primary" textColor="secondary"
             onChange={(event, newValue) => {
               setType(newValue);
               setPage(1);
