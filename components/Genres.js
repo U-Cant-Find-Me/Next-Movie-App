@@ -15,7 +15,12 @@ const Genres = ({
     const handleAdd = (genre) => {
         setSelectedGenres([...selectedGenres, genre]);
         setGenres(genres.filter(item => item.id !== genre.id));
-        setPage(1);
+    }
+
+    const handleRemove = (genre) => {
+        setSelectedGenres(
+            selectedGenres.filter(item => item.id !== genre.id));
+        setGenres([...genres, genre]);
     }
 
     const fetchGenres = async () => {
@@ -25,7 +30,7 @@ const Genres = ({
         setGenres(data.genres);
     };
 
-    console.log(genres);
+    // console.log(genres);
 
     useEffect(() => {
         fetchGenres();
@@ -41,11 +46,12 @@ const Genres = ({
                 selectedGenres && selectedGenres.map((item, index) => {
                     return (
                         <Chip key={index} label={item.name} className={styles.chips}
-                            clickable color="primary" />
+                            clickable onDelete={() => handleRemove(item)} color="primary" />
                     )
                 }
                 )
             }
+
             {
                 genres && genres.map((item, index) => {
                     return (

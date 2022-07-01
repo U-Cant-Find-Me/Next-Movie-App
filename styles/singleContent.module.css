@@ -18,7 +18,7 @@
 
 @media screen and (max-width: 550px) {
   .media {
-    width: 46%;
+    width: 90%;
   }
 }
 
@@ -55,4 +55,20 @@
   padding: 0 2px;
   padding-bottom: 3px;
   margin-top: 3px;
+}
+
+.btn{
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: #282c34;
+  color: #fff;
 }

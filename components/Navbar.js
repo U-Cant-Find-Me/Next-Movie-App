@@ -38,7 +38,7 @@ export default function SimpleBottomNavigation() {
                     </ul> </a>
             </Link>
 
-            <Link href="/wishlist">
+            <Link href="#">
                 <a>
                     <ul className={styles.list}>
                         <li className={styles.listItems}>
@@ -62,7 +62,7 @@ export default function SimpleBottomNavigation() {
                     </ul> </a>
             </Link>
 
-            <Link href="/favorites">
+            <Link href="#">
                 <a className={styles.anc}>
                     <ul className={styles.list}>
                         <li className={styles.listItems}>

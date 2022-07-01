@@ -1,8 +1,10 @@
 import axios from 'axios';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react'
 import Custompagination from '../components/Custompagination';
 import Genres from '../components/Genres';
 import SingleContent from '../components/SingleContent';
+import useGenres from '../customHooks/UseGenres';
 import styles from '../styles/movies.module.css';
 
 const movies = () => {
@@ -11,39 +13,47 @@ const movies = () => {
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState();
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState();
     const [genres, setGenres] = useState([]);
+    const genreforURL = useGenres(selectedGenres);
 
     const fetchMovies = async () => {
         const { data } = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=${page}`
+            `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=${page}&with_genres=${genreforURL}`
         );
         setContent(data.results);
         setNumOfPages(data.total_pages);
-        console.log(data);
+        //console.log(data);
     };
 
     useEffect(() => {
         fetchMovies();
-    }, [page]);
+    }, [page, genreforURL]);
 
     return (
-        <div className={styles.content}>
-            <span className={styles.pageTitle}>Discover Movies</span>
+        <>
+        <Head>
+            <title>Looking For Movies</title>
+        </Head>
+            <div className={styles.content}>
+                <span className={styles.pageTitle}>Discover Movies</span>
+                <Genres type="movie" selectedGenres={selectedGenres}
+                    genres={genres} setGenres={setGenres} setSelectedGenres={setSelectedGenres}
+                    setPage={setPage} />
 
-            <Genres type="movie" selectedGenres={selectedGenres}
-                genres={genres} setGenres={setGenres} setSelectedGenres={setSelectedGenres}
-                setPage={setPage} />
+                <div className={styles.trendingContainer}>
+                    {content && content.map((item, index) =>
+                        <SingleContent key={index} id={item.id}
+                            poster={item.poster_path} title={item.title || item.name}
+                            date={item.first_air_date || item.release_date}
+                            media_type={item.media_type} vote_average={item.vote_average}
+                            setSelectedMovie={setSelectedMovie} />
+                    )}
+                </div>
 
-            <div className={styles.trendingContainer}>
-                {content && content.map((item, index) =>
-                    <SingleContent key={index} id={item.id}
-                        poster={item.poster_path} title={item.title || item.name}
-                        date={item.first_air_date || item.release_date}
-                        media_type={item.media_type} vote_average={item.vote_average} />
-                )}
+                {numOfPages > 1 && <Custompagination setPage={setPage} numOfPages={numOfPages} />}
             </div>
-            {numOfPages > 1 && <Custompagination setPage={setPage} numOfPages="500" />}
-        </div>
+        </>
     )
 }
 

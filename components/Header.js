@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <div>
             <span onClick={() => window.scroll(0, 0)}
-                className={styles.header}>Name of the App</span>
+                className={styles.header}>🎥Film-Series🎬</span>
         </div>
     )
 }

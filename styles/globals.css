@@ -1,3 +1,5 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
 html,
 body {
   padding: 0;
@@ -5,7 +7,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     min-height: 100vh;
-    background-color: #39445a;
+    background-color: black;
     color: white;
     scroll-behavior: smooth;
 }

@@ -1,0 +1,48 @@
+.content {
+  padding-top: 10rem;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 10px;
+  background: white;
+  border-radius: 0.5rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.SearchIcon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.searchInput {
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.tabs {
+  padding-bottom: 5px;
+}
+
+.trendingContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.h2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}

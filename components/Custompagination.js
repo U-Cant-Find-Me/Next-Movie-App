@@ -2,7 +2,7 @@ import { Pagination } from '@mui/material';
 import React from 'react';
 import styles from '../styles/custompagination.module.css'
 
-const Custompagination = ({ setPage, numOfPages = 10 }) => {
+const Custompagination = ({ setPage, numOfPages }) => {
 
     const handlePageChange = (page) => {
         setPage(page);
@@ -11,7 +11,7 @@ const Custompagination = ({ setPage, numOfPages = 10 }) => {
 
     return (
         <div className={styles.custompagination}>
-            <Pagination color="primary" className={styles.pagination} count={numOfPages} onChange={(e) => handlePageChange(e.target.textContent)} />
+            <Pagination color="primary" className={styles.pagination} count={numOfPages > 500 ? 500 : numOfPages} onChange={(e) => handlePageChange(e.target.textContent)} />
         </div>
     )
 }
