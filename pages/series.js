@@ -7,7 +7,7 @@ import SingleContent from '../components/SingleContent';
 import useGenres from '../customHooks/UseGenres';
 import styles from '../styles/series.module.css';
 
-const series = () => {
+const Series = () => {
 
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
@@ -59,4 +59,4 @@ const series = () => {
     )
 }
 
-export default series;
+export default Series;

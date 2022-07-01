@@ -5,7 +5,7 @@ import Custompagination from '../components/Custompagination';
 import SingleContent from '../components/SingleContent';
 import styles from '../styles/trending.module.css';
 
-const trending = () => {
+const Trending = () => {
 
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
@@ -48,4 +48,4 @@ const trending = () => {
     )
 }
 
-export default trending;
+export default Trending;

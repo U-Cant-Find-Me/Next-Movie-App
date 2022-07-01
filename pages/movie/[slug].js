@@ -26,7 +26,6 @@ const Slug = ({ id }) => {
     const [imageDrop, setImageDrop] = useState();
     const [tagline, setTagline] = useState();
     const [overview, setoverview] = useState();
-    const [credits, setCredits] = useState();
 
     const fetchData = async () => {
         let urlData = "https://api.themoviedb.org/3/movie/" + ids + "?api_key=" + process.env.NEXT_PUBLIC_TMDB_API_KEY + "&language=en-US"
@@ -43,15 +42,6 @@ const Slug = ({ id }) => {
         // console.log(data.title);
     };
 
-    const fetchCredits = async () => {
-        const { data } = await axios.get(
-            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
-        );
-
-        // console.log(data.cast);
-        setCredits(data.cast);
-    }
-
     const fetchVideo = async () => {
         let urlVdo = "https://api.themoviedb.org/3/movie/" + ids + "/videos?api_key=" + process.env.NEXT_PUBLIC_TMDB_API_KEY + "&language=en-US"
         const { data } = await axios.get(urlVdo);
@@ -64,7 +54,6 @@ const Slug = ({ id }) => {
     useEffect(() => {
         fetchData();
         fetchVideo();
-        fetchCredits();
     }, []);
 
 
@@ -102,13 +91,9 @@ const Slug = ({ id }) => {
                         {overview}
                     </span>
 
-                    {/* <div className={styles.carousel}>
-                        <Carousel credits={credits} />
-                    </div> */}
-
                     <div className={styles.btn}>
                         <button className={styles.button}>
-                            <a className={styles.aTag} href={`https://www.youtube.com/watch?v=${video}`} target="_blank">
+                            <a className={styles.aTag} href={`https://www.youtube.com/watch?v=${video}`} target="_blank" rel="noopener noreferrer">
                                 <YouTubeIcon className={styles.youTubeIcon} />Watch The Trailer
                             </a>
                         </button>

@@ -7,7 +7,7 @@ import Custompagination from '../components/Custompagination';
 import SingleContent from '../components/SingleContent';
 import Head from 'next/head';
 
-const search = () => {
+const Search = () => {
 
   const [type, setType] = useState(0);
   const [page, setPage] = useState(1);
@@ -89,4 +89,4 @@ const search = () => {
   )
 }
 
-export default search;
+export default Search;

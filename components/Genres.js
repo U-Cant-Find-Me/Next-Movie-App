@@ -36,7 +36,7 @@ const Genres = ({
         fetchGenres();
 
         return () => {
-            setGenres([]);
+            setGenres({});
         }
     }, []);
 

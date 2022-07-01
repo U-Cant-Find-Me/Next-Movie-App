@@ -7,7 +7,7 @@ import SingleContent from '../components/SingleContent';
 import useGenres from '../customHooks/UseGenres';
 import styles from '../styles/movies.module.css';
 
-const movies = () => {
+const Movies = () => {
 
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
@@ -57,4 +57,4 @@ const movies = () => {
     )
 }
 
-export default movies;
+export default Movies;
